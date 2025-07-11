@@ -15,6 +15,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
+import { ColorThemeDropdown } from "@/components/color-theme-dropdown";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
@@ -43,7 +44,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 </BreadcrumbList>
               </Breadcrumb>
             </div>
-            <DarkModeToggle />
+            <div className="flex items-center">
+              <DarkModeToggle />
+              <span className="mr-2" />
+              <ColorThemeDropdown />
+            </div>
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">{children}</div>
