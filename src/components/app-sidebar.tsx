@@ -3,14 +3,18 @@
 import * as React from "react";
 import {
   AudioWaveform,
+  ChartBar,
   Command,
+  File,
   Frame,
   GalleryVerticalEnd,
   Map,
   Package,
   PieChart,
   Settings2,
+  ShoppingCart,
   User,
+  Users,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -61,6 +65,10 @@ const data = {
       icon: User,
       isActive: false,
     },
+    { title: "Orders", url: "/dashboard/orders", icon: ShoppingCart },
+    { title: "Analytics", url: "/dashboard/analytics", icon: ChartBar },
+    { title: "Reports", url: "/dashboard/reports", icon: File },
+    { title: "Team", url: "/dashboard/team", icon: Users },
     {
       title: "Settings",
       url: "/dashboard/settings",
