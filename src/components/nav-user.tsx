@@ -99,7 +99,7 @@ export function NavUser({
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/dashboard/notifications" className="flex">
+                <Link href="/notifications" className="flex">
                   <Bell className="mr-2" />
                   Notifications
                 </Link>

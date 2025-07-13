@@ -59,7 +59,7 @@ export function NotificationsDropdown() {
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link
-                href="/dashboard/notifications"
+                href="/notifications"
                 className="text-sm text-center w-full"
               >
                 View all notifications
