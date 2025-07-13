@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, Palette, Sun, Moon, Laptop } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
@@ -28,6 +28,11 @@ export function SettingsClient() {
     sms: false,
     push: true,
   });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
 
   return (
     <div className="flex flex-col gap-6 p-6">
