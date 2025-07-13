@@ -86,16 +86,21 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <BadgeCheck />
-                Account
+                <Link href="/account" className="flex">
+                  <BadgeCheck className="mr-2" />
+                  Account
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CreditCard />
-                Billing
+                <Link href="/billing" className="flex">
+                  {" "}
+                  <CreditCard className="mr-2" />
+                  Billing
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href="/dashboard/notifications" className="flex">
-                  <Bell className="mr-2"/>
+                  <Bell className="mr-2" />
                   Notifications
                 </Link>
               </DropdownMenuItem>
