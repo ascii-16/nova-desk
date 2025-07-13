@@ -6,9 +6,9 @@ import {
   ChartBar,
   Command,
   File,
-  Frame,
   GalleryVerticalEnd,
   Home,
+  Mail,
   Map,
   Package,
   PieChart,
@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
+import { NavQuickAccess } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
 import { TeamSwitcher } from "@/components/team-switcher";
 import {
@@ -82,11 +82,11 @@ const data = {
       icon: Settings2,
     },
   ],
-  projects: [
+  quickAccess: [
     {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
+      name: "Email Templates",
+      url: "/dashboard/email-templates",
+      icon: Mail,
     },
     {
       name: "Sales & Marketing",
@@ -109,7 +109,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavQuickAccess links={data.quickAccess} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
