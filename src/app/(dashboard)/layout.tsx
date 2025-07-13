@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/sidebar";
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
 import { ColorThemeDropdown } from "@/components/color-theme-dropdown";
+import { NotificationsDropdown } from "@/components/notifications-dropdown";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
@@ -45,6 +46,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               </Breadcrumb>
             </div>
             <div className="flex items-center">
+              <NotificationsDropdown />
+              <span className="mr-2" />
               <DarkModeToggle />
               <span className="mr-2" />
               <ColorThemeDropdown />
