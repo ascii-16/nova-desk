@@ -105,6 +105,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { useEffect } from "react"
 
 // Remove the hardcoded schema and columns
 
@@ -171,6 +172,7 @@ export function DataTable<TData>({ data: initialData, columns }: DataTableProps<
     pageIndex: 0,
     pageSize: 10,
   });
+  const [mounted, setMounted] = React.useState(false);
   const sortableId = React.useId();
   const sensors = useSensors(
     useSensor(MouseSensor, {}),
@@ -207,6 +209,10 @@ export function DataTable<TData>({ data: initialData, columns }: DataTableProps<
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
