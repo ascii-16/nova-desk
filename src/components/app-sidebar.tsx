@@ -8,6 +8,7 @@ import {
   File,
   Frame,
   GalleryVerticalEnd,
+  Home,
   Map,
   Package,
   PieChart,
@@ -54,10 +55,16 @@ const data = {
   ],
   navMain: [
     {
+      title: "Home",
+      url: "/dashboard",
+      icon: Home,
+      isActive: true,
+    },
+    {
       title: "Products",
       url: "/dashboard/products",
       icon: Package,
-      isActive: true,
+      isActive: false,
     },
     {
       title: "Customers",
