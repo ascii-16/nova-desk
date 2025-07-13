@@ -8,7 +8,7 @@ type OrderCancelledProps = EmailTemplateProps<{
   previewMode?: boolean;
 }>;
 
-export default function OrderCancelledEmail({
+export default function OrderCanceledEmail({
   name,
   orderId,
   refundAmount,
