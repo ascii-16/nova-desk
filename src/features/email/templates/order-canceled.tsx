@@ -18,7 +18,7 @@ export default function OrderCanceledEmail({
     <Container style={{ padding: "20px", fontFamily: "Arial", color: "black" }}>
       <Heading>We're sorry to see this, {name}</Heading>
       <Text>
-        Your order <strong>{orderId}</strong> has been cancelled.
+        Your order <strong>{orderId}</strong> has been canceled.
       </Text>
       <Text>
         A refund of <strong>₹{refundAmount.toFixed(2)}</strong> has been
