@@ -78,7 +78,7 @@ const data = {
     { title: "Team", url: "/dashboard/team", icon: Users },
     {
       title: "Settings",
-      url: "/dashboard/settings",
+      url: "/settings",
       icon: Settings2,
     },
   ],

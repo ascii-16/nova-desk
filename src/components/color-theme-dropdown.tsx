@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
-const themes = [
+export const themes = [
   { label: "Default", value: "default" },
   { label: "Red", value: "red" },
   { label: "Rose", value: "rose" },
