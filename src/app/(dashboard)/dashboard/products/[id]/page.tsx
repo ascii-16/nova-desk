@@ -11,8 +11,7 @@ export default async function ProductViewPage({
   params,
 }: ProductViewPageProps) {
   const p = await params;
-  const id = Number(p.id);
-  const product = await fetchProductById(id);
+  const product = await fetchProductById(p.id);
 
   if (!product) {
     notFound();

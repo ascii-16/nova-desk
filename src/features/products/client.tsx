@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useActionState } from "react";
+import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/data-table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,8 +17,9 @@ import {
 } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import type { Product } from "./types";
-import { ColumnDef } from "@tanstack/react-table";
+import type { CreateProductValues, Product } from "./types";
+import { createProductAction } from "./actions";
+import { FieldError } from "@/components/ui/field-error";
 
 const columns: ColumnDef<Product>[] = [
   {
@@ -58,39 +60,34 @@ const columns: ColumnDef<Product>[] = [
   },
 ];
 
-export function ProductsClient({ products }: { products: Product[] }) {
-  const [data, setData] = useState(products);
-  const [sheetOpen, setSheetOpen] = useState(false);
-  const [form, setForm] = useState({
+const initialState: FormState<CreateProductValues> = {
+  success: false,
+  errors: {},
+  messages: [],
+  values: {
     name: "",
     category: "",
     price: "",
     stock: "",
     status: "Active" as Product["status"],
-  });
+  },
+};
 
-  function handleInputChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
+export function ProductsClient({ products }: { products: Product[] }) {
+  const [data, setData] = useState(products);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setData([
-      ...data,
-      {
-        id: Math.max(0, ...data.map((p) => p.id)) + 1,
-        name: form.name,
-        category: form.category,
-        price: Number(form.price),
-        stock: Number(form.stock),
-        status: form.status,
-      },
-    ]);
-    setForm({ name: "", category: "", price: "", stock: "", status: "Active" });
-    setSheetOpen(false);
-  }
+  const [state, formAction, pending] = useActionState<
+    FormState<CreateProductValues>,
+    FormData
+  >(createProductAction, initialState);
+
+  // function FieldError({ name }: { name: string }) {
+  //   const messages = state?.errors?.[name as keyof typeof state.errors];
+  //   if (!messages || messages.length === 0) return null;
+
+  //   return <p className="text-sm text-red-500 mt-1">{messages.join(", ")}</p>;
+  // }
 
   return (
     <div className="flex flex-col gap-6 p-6">
@@ -106,7 +103,7 @@ export function ProductsClient({ products }: { products: Product[] }) {
             <SheetHeader>
               <SheetTitle>Add Product</SheetTitle>
             </SheetHeader>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
+            <form action={formAction} className="flex flex-col gap-4 p-4">
               <div>
                 <Label htmlFor="name" className="mb-2">
                   Name
@@ -114,10 +111,9 @@ export function ProductsClient({ products }: { products: Product[] }) {
                 <Input
                   id="name"
                   name="name"
-                  value={form.name}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.name}
                 />
+                <FieldError name="name" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="category" className="mb-2">
@@ -126,10 +122,9 @@ export function ProductsClient({ products }: { products: Product[] }) {
                 <Input
                   id="category"
                   name="category"
-                  value={form.category}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.category}
                 />
+                <FieldError name="category" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="price" className="mb-2">
@@ -140,10 +135,9 @@ export function ProductsClient({ products }: { products: Product[] }) {
                   name="price"
                   type="number"
                   step="0.01"
-                  value={form.price}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.price}
                 />
+                <FieldError name="price" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="stock" className="mb-2">
@@ -153,10 +147,9 @@ export function ProductsClient({ products }: { products: Product[] }) {
                   id="stock"
                   name="stock"
                   type="number"
-                  value={form.stock}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.stock}
                 />
+                <FieldError name="stock" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="status" className="mb-2">
@@ -165,8 +158,6 @@ export function ProductsClient({ products }: { products: Product[] }) {
                 <select
                   id="status"
                   name="status"
-                  value={form.status}
-                  onChange={handleInputChange}
                   className="border rounded px-2 py-1"
                 >
                   <option value="Active">Active</option>
@@ -175,7 +166,9 @@ export function ProductsClient({ products }: { products: Product[] }) {
                 </select>
               </div>
               <SheetFooter>
-                <Button type="submit">Add Product</Button>
+                <Button type="submit" disabled={pending}>
+                  Add Product
+                </Button>
                 <SheetClose asChild>
                   <Button variant="outline" type="button">
                     Cancel

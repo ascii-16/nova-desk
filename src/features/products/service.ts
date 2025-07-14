@@ -3,7 +3,7 @@ import type { Product } from "./types";
 
 const products: Product[] = [
   {
-    id: 1,
+    id: "pji0dn1r",
     name: "Wireless Mouse",
     category: "Electronics",
     price: 29.99,
@@ -11,7 +11,7 @@ const products: Product[] = [
     status: "Active",
   },
   {
-    id: 2,
+    id: "8fw2gbjp",
     name: "Bluetooth Headphones",
     category: "Electronics",
     price: 59.99,
@@ -19,7 +19,7 @@ const products: Product[] = [
     status: "Low Stock",
   },
   {
-    id: 3,
+    id: "fi7qxuj3",
     name: "Standing Desk",
     category: "Furniture",
     price: 299.99,
@@ -27,7 +27,7 @@ const products: Product[] = [
     status: "Low Stock",
   },
   {
-    id: 4,
+    id: "g4xu023y",
     name: "Notebook",
     category: "Stationery",
     price: 3.99,
@@ -35,7 +35,7 @@ const products: Product[] = [
     status: "Active",
   },
   {
-    id: 5,
+    id: "a3fjpk6e",
     name: "Office Chair",
     category: "Furniture",
     price: 149.99,
@@ -50,9 +50,14 @@ export async function fetchProducts(): Promise<Product[]> {
 }
 
 export async function fetchProductById(
-  id: number
+  id: string
 ): Promise<Product | undefined> {
   const product = products.find((product) => product.id === id);
   await delay(500);
   return product;
+}
+
+export async function createProduct(data: Product) {
+  await delay(500);
+  return { message: "Product added", data };
 }
