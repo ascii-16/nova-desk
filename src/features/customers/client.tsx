@@ -5,7 +5,15 @@ import { useState } from "react";
 import { DataTable } from "@/components/data-table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetFooter, SheetClose } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetFooter,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { Customer } from "./types";
@@ -57,7 +65,9 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
     status: "Active" as Customer["status"],
   });
 
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+  function handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
@@ -74,7 +84,13 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
         status: form.status,
       },
     ]);
-    setForm({ name: "", email: "", location: "", orders: "", status: "Active" });
+    setForm({
+      name: "",
+      email: "",
+      location: "",
+      orders: "",
+      status: "Active",
+    });
     setSheetOpen(false);
   }
 
@@ -94,23 +110,59 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
             </SheetHeader>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
               <div>
-                <Label htmlFor="name" className="mb-2">Name</Label>
-                <Input id="name" name="name" value={form.name} onChange={handleInputChange} required />
+                <Label htmlFor="name" className="mb-2">
+                  Name
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  value={form.name}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="email" className="mb-2">Email</Label>
-                <Input id="email" name="email" type="email" value={form.email} onChange={handleInputChange} required />
+                <Label htmlFor="email" className="mb-2">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="location" className="mb-2">Location</Label>
-                <Input id="location" name="location" value={form.location} onChange={handleInputChange} required />
+                <Label htmlFor="location" className="mb-2">
+                  Location
+                </Label>
+                <Input
+                  id="location"
+                  name="location"
+                  value={form.location}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="orders" className="mb-2">Orders</Label>
-                <Input id="orders" name="orders" type="number" value={form.orders} onChange={handleInputChange} required />
+                <Label htmlFor="orders" className="mb-2">
+                  Orders
+                </Label>
+                <Input
+                  id="orders"
+                  name="orders"
+                  type="number"
+                  value={form.orders}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="status" className="mb-2">Status</Label>
+                <Label htmlFor="status" className="mb-2">
+                  Status
+                </Label>
                 <select
                   id="status"
                   name="status"
@@ -126,7 +178,9 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
               <SheetFooter>
                 <Button type="submit">Add Customer</Button>
                 <SheetClose asChild>
-                  <Button variant="outline" type="button">Cancel</Button>
+                  <Button variant="outline" type="button">
+                    Cancel
+                  </Button>
                 </SheetClose>
               </SheetFooter>
             </form>
@@ -136,4 +190,4 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
       <DataTable data={data} columns={columns} />
     </div>
   );
-} 
+}

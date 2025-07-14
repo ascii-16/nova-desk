@@ -5,7 +5,15 @@ import { useState } from "react";
 import { DataTable } from "@/components/data-table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetFooter, SheetClose } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetFooter,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { Product } from "./types";
@@ -61,7 +69,9 @@ export function ProductsClient({ products }: { products: Product[] }) {
     status: "Active" as Product["status"],
   });
 
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+  function handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
@@ -98,23 +108,60 @@ export function ProductsClient({ products }: { products: Product[] }) {
             </SheetHeader>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
               <div>
-                <Label htmlFor="name" className="mb-2">Name</Label>
-                <Input id="name" name="name" value={form.name} onChange={handleInputChange} required />
+                <Label htmlFor="name" className="mb-2">
+                  Name
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  value={form.name}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="category" className="mb-2">Category</Label>
-                <Input id="category" name="category" value={form.category} onChange={handleInputChange} required />
+                <Label htmlFor="category" className="mb-2">
+                  Category
+                </Label>
+                <Input
+                  id="category"
+                  name="category"
+                  value={form.category}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="price" className="mb-2">Price</Label>
-                <Input id="price" name="price" type="number" step="0.01" value={form.price} onChange={handleInputChange} required />
+                <Label htmlFor="price" className="mb-2">
+                  Price
+                </Label>
+                <Input
+                  id="price"
+                  name="price"
+                  type="number"
+                  step="0.01"
+                  value={form.price}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="stock" className="mb-2">Stock</Label>
-                <Input id="stock" name="stock" type="number" value={form.stock} onChange={handleInputChange} required />
+                <Label htmlFor="stock" className="mb-2">
+                  Stock
+                </Label>
+                <Input
+                  id="stock"
+                  name="stock"
+                  type="number"
+                  value={form.stock}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div>
-                <Label htmlFor="status" className="mb-2">Status</Label>
+                <Label htmlFor="status" className="mb-2">
+                  Status
+                </Label>
                 <select
                   id="status"
                   name="status"
@@ -130,7 +177,9 @@ export function ProductsClient({ products }: { products: Product[] }) {
               <SheetFooter>
                 <Button type="submit">Add Product</Button>
                 <SheetClose asChild>
-                  <Button variant="outline" type="button">Cancel</Button>
+                  <Button variant="outline" type="button">
+                    Cancel
+                  </Button>
                 </SheetClose>
               </SheetFooter>
             </form>
@@ -140,4 +189,4 @@ export function ProductsClient({ products }: { products: Product[] }) {
       <DataTable data={data} columns={columns} />
     </div>
   );
-} 
+}
