@@ -1,12 +1,24 @@
 "use client";
 
+import Link from "next/link";
 import { DataTable } from "@/components/data-table";
 import { Badge } from "@/components/ui/badge";
 import type { Customer } from "./types";
 import { ColumnDef } from "@tanstack/react-table";
 
 const columns: ColumnDef<Customer>[] = [
-  { accessorKey: "name", header: "Name" },
+  {
+    accessorKey: "name",
+    header: "Name",
+    cell: ({ row }) => (
+      <Link
+        href={`/dashboard/customers/${row.original.id}`}
+        className="text-primary underline underline-offset-2 hover:text-primary/80"
+      >
+        {row.original.name}
+      </Link>
+    ),
+  },
   { accessorKey: "email", header: "Email" },
   { accessorKey: "location", header: "Location" },
   { accessorKey: "orders", header: "Orders" },
