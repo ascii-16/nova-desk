@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavQuickAccess } from "@/components/nav-projects";
+import { NavQuickAccess } from "@/components/nav-quick-access";
 import { NavUser } from "@/components/nav-user";
 import { TeamSwitcher } from "@/components/team-switcher";
 import {
@@ -87,16 +87,6 @@ const data = {
       name: "Email Templates",
       url: "/dashboard/email-templates",
       icon: Mail,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 };
