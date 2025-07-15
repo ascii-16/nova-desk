@@ -3,7 +3,7 @@ import type { Customer } from "./types";
 
 const customers: Customer[] = [
   {
-    id: 1,
+    id: "cus1a2b3c",
     name: "Alice Johnson",
     email: "alice@example.com",
     location: "New York",
@@ -11,7 +11,7 @@ const customers: Customer[] = [
     status: "Active",
   },
   {
-    id: 2,
+    id: "cus4d5e6f",
     name: "Bob Smith",
     email: "bob@example.com",
     location: "San Francisco",
@@ -19,7 +19,7 @@ const customers: Customer[] = [
     status: "Pending",
   },
   {
-    id: 3,
+    id: "cus7g8h9i",
     name: "Charlie Brown",
     email: "charlie@example.com",
     location: "Chicago",
@@ -27,7 +27,7 @@ const customers: Customer[] = [
     status: "Inactive",
   },
   {
-    id: 4,
+    id: "cus0j1k2l",
     name: "Diana Prince",
     email: "diana@example.com",
     location: "Los Angeles",
@@ -35,7 +35,7 @@ const customers: Customer[] = [
     status: "Active",
   },
   {
-    id: 5,
+    id: "cus3m4n5o",
     name: "Evan Thomas",
     email: "evan@example.com",
     location: "Seattle",
@@ -49,8 +49,14 @@ export async function fetchCustomers(): Promise<Customer[]> {
   return customers;
 }
 
-export async function fetchCustomerById(id: number): Promise<Customer | undefined> {
+export async function fetchCustomerById(id: string): Promise<Customer | undefined> {
   const customer = customers.find((customer) => customer.id === id);
   await delay(500);
   return customer;
+}
+
+export async function createCustomer(customer: Customer) {
+  await delay(500);
+  customers.push(customer);
+  return { message: "Customer added", customer };
 } 

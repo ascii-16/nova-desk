@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useActionState, useEffect } from "react";
+import { ColumnDef } from "@tanstack/react-table";
+import { toast } from "sonner";
 import { DataTable } from "@/components/data-table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,9 +18,12 @@ import {
 } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import type { Customer } from "./types";
-import { ColumnDef } from "@tanstack/react-table";
+import type { CreateCustomerValues, Customer } from "./types";
+import { createCustomerAction } from "./actions";
+import { FieldError } from "@/components/ui/field-error";
+import { fetchCustomers } from "./service";
 import { Plus } from "lucide-react";
+import type { FormState } from "@/types/form";
 
 const columns: ColumnDef<Customer>[] = [
   {
@@ -55,45 +60,43 @@ const columns: ColumnDef<Customer>[] = [
   },
 ];
 
-export function CustomersClient({ customers }: { customers: Customer[] }) {
-  const [data, setData] = useState(customers);
-  const [sheetOpen, setSheetOpen] = useState(false);
-  const [form, setForm] = useState({
+const initialState: FormState<CreateCustomerValues> = {
+  success: false,
+  errors: {},
+  messages: [],
+  values: {
     name: "",
     email: "",
     location: "",
     orders: "",
     status: "Active" as Customer["status"],
-  });
+  },
+};
 
-  function handleInputChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
+export function CustomersClient({ customers }: { customers: Customer[] }) {
+  const [data, setData] = useState(customers);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [state, formAction, pending] = useActionState(
+    createCustomerAction,
+    initialState
+  );
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setData([
-      ...data,
-      {
-        id: Math.max(0, ...data.map((c) => c.id)) + 1,
-        name: form.name,
-        email: form.email,
-        location: form.location,
-        orders: Number(form.orders),
-        status: form.status,
-      },
-    ]);
-    setForm({
-      name: "",
-      email: "",
-      location: "",
-      orders: "",
-      status: "Active",
-    });
-    setSheetOpen(false);
-  }
+  useEffect(() => {
+    if (state.success) {
+      setSheetOpen(false);
+      toast.success(
+        <>
+          <h4>Customer added</h4>
+          <p>(Note: only simulation)</p>
+        </>,
+        { position: "top-right" }
+      );
+      // In a real life api call, this would ideally refetch the updated
+      // products array from the remote server. since we're using an in memory
+      // products array as the source here, it wouldn't update synchronously
+      fetchCustomers().then(setData);
+    }
+  }, [state]);
 
   return (
     <div className="flex flex-col gap-6 p-6">
@@ -109,7 +112,7 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
             <SheetHeader>
               <SheetTitle>Add Customer</SheetTitle>
             </SheetHeader>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
+            <form action={formAction} className="flex flex-col gap-4 p-4">
               <div>
                 <Label htmlFor="name" className="mb-2">
                   Name
@@ -117,10 +120,9 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
                 <Input
                   id="name"
                   name="name"
-                  value={form.name}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.name}
                 />
+                <FieldError name="name" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="email" className="mb-2">
@@ -130,10 +132,9 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
                   id="email"
                   name="email"
                   type="email"
-                  value={form.email}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.email}
                 />
+                <FieldError name="email" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="location" className="mb-2">
@@ -142,10 +143,9 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
                 <Input
                   id="location"
                   name="location"
-                  value={form.location}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.location}
                 />
+                <FieldError name="location" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="orders" className="mb-2">
@@ -155,10 +155,9 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
                   id="orders"
                   name="orders"
                   type="number"
-                  value={form.orders}
-                  onChange={handleInputChange}
-                  required
+                  defaultValue={state.values?.orders}
                 />
+                <FieldError name="orders" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="status" className="mb-2">
@@ -167,9 +166,8 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
                 <select
                   id="status"
                   name="status"
-                  value={form.status}
-                  onChange={handleInputChange}
                   className="border rounded px-2 py-1"
+                  defaultValue={state.values?.status}
                 >
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
@@ -177,7 +175,9 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
                 </select>
               </div>
               <SheetFooter>
-                <Button type="submit">Add Customer</Button>
+                <Button type="submit" disabled={pending}>
+                  Add Customer
+                </Button>
                 <SheetClose asChild>
                   <Button variant="outline" type="button">
                     Cancel
