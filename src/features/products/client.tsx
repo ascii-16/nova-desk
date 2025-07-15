@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useActionState } from "react";
+import { useState, useActionState, useEffect } from "react";
 import { ColumnDef } from "@tanstack/react-table";
+import { toast } from "sonner";
 import { DataTable } from "@/components/data-table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ import { Label } from "@/components/ui/label";
 import type { CreateProductValues, Product } from "./types";
 import { createProductAction } from "./actions";
 import { FieldError } from "@/components/ui/field-error";
+import { fetchProducts } from "./service";
 
 const columns: ColumnDef<Product>[] = [
   {
@@ -76,18 +78,27 @@ const initialState: FormState<CreateProductValues> = {
 export function ProductsClient({ products }: { products: Product[] }) {
   const [data, setData] = useState(products);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [state, formAction, pending] = useActionState(
+    createProductAction,
+    initialState
+  );
 
-  const [state, formAction, pending] = useActionState<
-    FormState<CreateProductValues>,
-    FormData
-  >(createProductAction, initialState);
-
-  // function FieldError({ name }: { name: string }) {
-  //   const messages = state?.errors?.[name as keyof typeof state.errors];
-  //   if (!messages || messages.length === 0) return null;
-
-  //   return <p className="text-sm text-red-500 mt-1">{messages.join(", ")}</p>;
-  // }
+  useEffect(() => {
+    if (state.success) {
+      setSheetOpen(false);
+      toast.success(
+        <>
+          <h4>Product added</h4>
+          <p>(Note: only stimulation)</p>
+        </>,
+        { position: "top-right" }
+      );
+      // In a real life api call, this would ideally refetch the updated
+      // products array from the remote server. since we're using an in memory
+      // products array as the source here, it wouldn't update synchronously
+      fetchProducts().then(setData);
+    }
+  }, [state]);
 
   return (
     <div className="flex flex-col gap-6 p-6">

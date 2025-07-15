@@ -1,6 +1,9 @@
 import { delay } from "@/lib/utils";
 import type { Product } from "./types";
 
+// NOTE: These functions just mock a db and may not mutate like a real life actual db
+// Replace with your actual api call
+
 const products: Product[] = [
   {
     id: "pji0dn1r",
@@ -46,7 +49,7 @@ const products: Product[] = [
 
 export async function fetchProducts(): Promise<Product[]> {
   await delay(1000);
-  return products;
+  return [...products];
 }
 
 export async function fetchProductById(
@@ -57,7 +60,8 @@ export async function fetchProductById(
   return product;
 }
 
-export async function createProduct(data: Product) {
+export async function createProduct(product: Product) {
   await delay(500);
-  return { message: "Product added", data };
+  products.push(product);
+  return { message: "Product added", product };
 }
