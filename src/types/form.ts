@@ -6,5 +6,5 @@ export type FormState<TValues extends Record<string, unknown>> = {
 };
 
 export type Formify<T> = {
-  [K in keyof T]: string;
-}
+  [K in keyof T]: T[K] extends number | boolean ? string : T[K];
+};
