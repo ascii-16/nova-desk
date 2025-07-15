@@ -7,9 +7,7 @@ interface ProductViewPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function ProductViewPage({
-  params,
-}: ProductViewPageProps) {
+export default async function ProductViewPage({ params }: ProductViewPageProps) {
   const p = await params;
   const product = await fetchProductById(p.id);
 
@@ -21,9 +19,7 @@ export default async function ProductViewPage({
     <div className="flex flex-col gap-6 p-6">
       <div>
         <h1 className="text-2xl font-bold">{product.name}</h1>
-        <p className="text-muted-foreground text-sm">
-          Detailed product information
-        </p>
+        <p className="text-muted-foreground text-sm">Detailed product information</p>
       </div>
 
       <Card>

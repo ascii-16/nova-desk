@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from "lucide-react";
+import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -111,10 +104,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem
-              className="text-red-700 focus:text-red-800"
-              onClick={handleLogout}
-            >
+            <DropdownMenuItem className="text-red-700 focus:text-red-800" onClick={handleLogout}>
               <LogOut className="text-red-700 focus:text-red-800" />
               Log out
             </DropdownMenuItem>

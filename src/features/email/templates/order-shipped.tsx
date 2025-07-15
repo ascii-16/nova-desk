@@ -20,8 +20,7 @@ export default function OrderShippedEmail({
     <Container style={{ padding: "20px", fontFamily: "Arial", color: "black" }}>
       <Heading>Your order is on the way, {name}!</Heading>
       <Text>
-        Your order <strong>{orderId}</strong> has been shipped via{" "}
-        <strong>{courier}</strong>.
+        Your order <strong>{orderId}</strong> has been shipped via <strong>{courier}</strong>.
       </Text>
       <Text>
         Track your shipment:{" "}
@@ -30,9 +29,7 @@ export default function OrderShippedEmail({
         </a>
       </Text>
       <Hr />
-      <Text>
-        Thank you for shopping with us. We hope you love your purchase!
-      </Text>
+      <Text>Thank you for shopping with us. We hope you love your purchase!</Text>
       <Text style={{ marginTop: "12px" }}>- The NovaDesk Team</Text>
     </Container>
   );

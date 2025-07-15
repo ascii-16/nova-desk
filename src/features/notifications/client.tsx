@@ -4,18 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { Notification } from "./types";
 
-export function NotificationsClient({
-  notifications,
-}: {
-  notifications: Notification[];
-}) {
+export function NotificationsClient({ notifications }: { notifications: Notification[] }) {
   return (
     <div className="flex flex-col gap-6 p-6">
       <div>
         <h1 className="text-2xl font-bold">Notifications</h1>
-        <p className="text-muted-foreground">
-          View all your recent alerts and messages.
-        </p>
+        <p className="text-muted-foreground">View all your recent alerts and messages.</p>
       </div>
       <Separator />
       <div className="grid gap-4">

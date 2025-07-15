@@ -52,9 +52,7 @@ export async function fetchProducts(): Promise<Product[]> {
   return [...products];
 }
 
-export async function fetchProductById(
-  id: string
-): Promise<Product | undefined> {
+export async function fetchProductById(id: string): Promise<Product | undefined> {
   const product = products.find((product) => product.id === id);
   await delay(500);
   return product;

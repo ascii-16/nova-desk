@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  type ColorTheme,
-  useColorTheme,
-} from "@/components/providers/theme-provider";
+import { type ColorTheme, useColorTheme } from "@/components/providers/theme-provider";
 import { Check, Palette } from "lucide-react";
 import {
   DropdownMenu,
@@ -41,9 +38,7 @@ export function ColorThemeDropdown() {
             className="flex items-center justify-between"
           >
             {t.label}
-            {colorTheme === t.value && (
-              <Check className="text-primary h-4 w-4" />
-            )}
+            {colorTheme === t.value && <Check className="text-primary h-4 w-4" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

@@ -7,9 +7,7 @@ interface CustomerViewPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function CustomerViewPage({
-  params,
-}: CustomerViewPageProps) {
+export default async function CustomerViewPage({ params }: CustomerViewPageProps) {
   const p = await params;
   const customer = await fetchCustomerById(p.id);
 
@@ -21,9 +19,7 @@ export default async function CustomerViewPage({
     <div className="flex flex-col gap-6 p-6">
       <div>
         <h1 className="text-2xl font-bold">{customer.name}</h1>
-        <p className="text-muted-foreground text-sm">
-          Customer profile overview
-        </p>
+        <p className="text-muted-foreground text-sm">Customer profile overview</p>
       </div>
 
       <Card>

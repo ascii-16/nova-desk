@@ -24,11 +24,7 @@ const columns: ColumnDef<Order>[] = [
             Shipped: "secondary",
             Pending: "outline",
             Cancelled: "destructive",
-          }[row.original.status] as
-            | "default"
-            | "secondary"
-            | "outline"
-            | "destructive"
+          }[row.original.status] as "default" | "secondary" | "outline" | "destructive"
         }
       >
         {row.original.status}

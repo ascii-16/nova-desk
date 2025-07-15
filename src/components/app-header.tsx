@@ -11,10 +11,7 @@ export function AppHeader() {
       <div className="flex w-full items-center justify-between gap-2 px-4">
         <div className="flex items-center">
           <SidebarTrigger className="-ml-1" />
-          <Separator
-            orientation="vertical"
-            className="mr-2 data-[orientation=vertical]:h-4"
-          />
+          <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
           <AppBreadCrumb />
         </div>
         <div className="flex items-center">

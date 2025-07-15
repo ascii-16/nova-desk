@@ -33,25 +33,14 @@ const emailTemplates: {
     id: "order",
     title: "Order Confirmation",
     description: "Sent after a successful order.",
-    content: (
-      <OrderPlacedEmail
-        name="Jamik"
-        orderId="#ABC123"
-        items={orderItems}
-        previewMode
-      />
-    ),
+    content: <OrderPlacedEmail name="Jamik" orderId="#ABC123" items={orderItems} previewMode />,
   },
   {
     id: "reset",
     title: "Reset Password",
     description: "Sent when a password reset is requested.",
     content: (
-      <ResetPasswordEmail
-        name="Jamik"
-        resetUrl="https://example.com/reset?token=123"
-        previewMode
-      />
+      <ResetPasswordEmail name="Jamik" resetUrl="https://example.com/reset?token=123" previewMode />
     ),
   },
   {
@@ -72,14 +61,7 @@ const emailTemplates: {
     id: "cancelled",
     title: "Order Cancelled",
     description: "Sent when an order is cancelled and refund is initiated.",
-    content: (
-      <OrderCancelledEmail
-        name="Jamik"
-        orderId="#XYZ999"
-        refundAmount={499}
-        previewMode
-      />
-    ),
+    content: <OrderCancelledEmail name="Jamik" orderId="#XYZ999" refundAmount={499} previewMode />,
   },
 ];
 
@@ -106,10 +88,7 @@ export function EmailTemplatesListing() {
 
         {emailTemplates.map((template) => (
           <TabsContent key={template.id} value={template.id}>
-            <TemplateCard
-              title={template.title}
-              description={template.description}
-            >
+            <TemplateCard title={template.title} description={template.description}>
               {template.content}
             </TemplateCard>
           </TabsContent>

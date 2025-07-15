@@ -15,8 +15,7 @@ export async function createProductAction(
     category: formData.get("category")?.toString() ?? "",
     price: formData.get("price")?.toString() ?? "",
     stock: formData.get("stock")?.toString() ?? "",
-    status: (formData.get("status")?.toString() ??
-      "Active") as CreateProductValues["status"],
+    status: (formData.get("status")?.toString() ?? "Active") as CreateProductValues["status"],
   };
 
   const validatedFields = productSchema.safeParse(values);

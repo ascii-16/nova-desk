@@ -1,12 +1,5 @@
 import { type EmailTemplateProps } from "@/features/types";
-import {
-  Html,
-  Text,
-  Heading,
-  Button,
-  Section,
-  Container,
-} from "@react-email/components";
+import { Html, Text, Heading, Button, Section, Container } from "@react-email/components";
 
 export default function SignupEmail({
   name,
@@ -18,10 +11,7 @@ export default function SignupEmail({
       <Text>Thank you for signing up. We’re excited to have you on board.</Text>
       <Text>Start exploring your dashboard and unlock powerful features.</Text>
       <Section style={{ marginTop: "24px" }}>
-        <Button
-          href="/dashboard"
-          style={{ backgroundColor: "#000", color: "#fff" }}
-        >
+        <Button href="/dashboard" style={{ backgroundColor: "#000", color: "#fff" }}>
           Go to Dashboard
         </Button>
       </Section>

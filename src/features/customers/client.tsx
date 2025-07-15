@@ -76,10 +76,7 @@ const initialState: FormState<CreateCustomerValues> = {
 export function CustomersClient({ customers }: { customers: Customer[] }) {
   const [data, setData] = useState(customers);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [state, formAction, pending] = useActionState(
-    createCustomerAction,
-    initialState
-  );
+  const [state, formAction, pending] = useActionState(createCustomerAction, initialState);
 
   useEffect(() => {
     if (state.success) {
@@ -117,34 +114,21 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
                 <Label htmlFor="name" className="mb-2">
                   Name
                 </Label>
-                <Input
-                  id="name"
-                  name="name"
-                  defaultValue={state.values?.name}
-                />
+                <Input id="name" name="name" defaultValue={state.values?.name} />
                 <FieldError name="name" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="email" className="mb-2">
                   Email
                 </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  defaultValue={state.values?.email}
-                />
+                <Input id="email" name="email" type="email" defaultValue={state.values?.email} />
                 <FieldError name="email" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="location" className="mb-2">
                   Location
                 </Label>
-                <Input
-                  id="location"
-                  name="location"
-                  defaultValue={state.values?.location}
-                />
+                <Input id="location" name="location" defaultValue={state.values?.location} />
                 <FieldError name="location" errors={state.errors} />
               </div>
               <div>

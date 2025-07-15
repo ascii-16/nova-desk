@@ -15,13 +15,13 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-center p-8">
-      <h1 className="text-4xl font-bold mb-4">Something went wrong</h1>
-      <p className="mb-2 text-muted-foreground">
+    <div className="bg-background flex min-h-screen flex-col items-center justify-center p-8 text-center">
+      <h1 className="mb-4 text-4xl font-bold">Something went wrong</h1>
+      <p className="text-muted-foreground mb-2">
         An unexpected error has occurred. Please try again or return home.
       </p>
       {error?.message && (
-        <pre className="bg-muted rounded p-4 mb-4 text-sm text-left max-w-lg overflow-x-auto">
+        <pre className="bg-muted mb-4 max-w-lg overflow-x-auto rounded p-4 text-left text-sm">
           {error.message}
         </pre>
       )}

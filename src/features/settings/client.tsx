@@ -14,10 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { themes } from "@/components/color-theme-dropdown";
-import {
-  ColorTheme,
-  useColorTheme,
-} from "@/components/providers/theme-provider";
+import { ColorTheme, useColorTheme } from "@/components/providers/theme-provider";
 import { useTheme } from "next-themes";
 
 export function SettingsClient() {
@@ -38,9 +35,7 @@ export function SettingsClient() {
     <div className="flex flex-col gap-6 p-6">
       <div>
         <h1 className="text-2xl font-bold">Settings</h1>
-        <p className="text-muted-foreground">
-          Customize your experience and manage preferences.
-        </p>
+        <p className="text-muted-foreground">Customize your experience and manage preferences.</p>
       </div>
 
       <Separator />
@@ -112,9 +107,7 @@ export function SettingsClient() {
                   className="flex items-center justify-between"
                 >
                   {theme.label}
-                  {colorTheme === theme.value && (
-                    <Check className="text-primary h-4 w-4" />
-                  )}
+                  {colorTheme === theme.value && <Check className="text-primary h-4 w-4" />}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
@@ -154,27 +147,21 @@ export function SettingsClient() {
             <Label>Email Notifications</Label>
             <Switch
               checked={notifications.email}
-              onCheckedChange={(v) =>
-                setNotifications({ ...notifications, email: v })
-              }
+              onCheckedChange={(v) => setNotifications({ ...notifications, email: v })}
             />
           </div>
           <div className="flex items-center justify-between">
             <Label>SMS Notifications</Label>
             <Switch
               checked={notifications.sms}
-              onCheckedChange={(v) =>
-                setNotifications({ ...notifications, sms: v })
-              }
+              onCheckedChange={(v) => setNotifications({ ...notifications, sms: v })}
             />
           </div>
           <div className="flex items-center justify-between">
             <Label>Push Notifications</Label>
             <Switch
               checked={notifications.push}
-              onCheckedChange={(v) =>
-                setNotifications({ ...notifications, push: v })
-              }
+              onCheckedChange={(v) => setNotifications({ ...notifications, push: v })}
             />
           </div>
         </div>

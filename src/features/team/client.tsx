@@ -59,17 +59,13 @@ export function TeamClient({ team }: { team: TeamMember[] }) {
                   </Avatar>
                   <div>
                     <div className="font-medium">{member.name}</div>
-                    <div className="text-muted-foreground text-sm">
-                      {member.email}
-                    </div>
+                    <div className="text-muted-foreground text-sm">{member.email}</div>
                   </div>
                 </TableCell>
                 <TableCell>{member.role}</TableCell>
                 <TableCell>
                   <Badge
-                    variant={
-                      member.status === "Active" ? "default" : "secondary"
-                    }
+                    variant={member.status === "Active" ? "default" : "secondary"}
                     className="flex items-center gap-1"
                   >
                     {member.status === "Active" ? (
@@ -90,9 +86,7 @@ export function TeamClient({ team }: { team: TeamMember[] }) {
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem>Edit</DropdownMenuItem>
                       <DropdownMenuItem>Change Role</DropdownMenuItem>
-                      <DropdownMenuItem className="text-destructive">
-                        Remove
-                      </DropdownMenuItem>
+                      <DropdownMenuItem className="text-destructive">Remove</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

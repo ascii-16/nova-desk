@@ -49,9 +49,7 @@ export async function fetchCustomers(): Promise<Customer[]> {
   return customers;
 }
 
-export async function fetchCustomerById(
-  id: string
-): Promise<Customer | undefined> {
+export async function fetchCustomerById(id: string): Promise<Customer | undefined> {
   const customer = customers.find((customer) => customer.id === id);
   await delay(500);
   return customer;

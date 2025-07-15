@@ -47,21 +47,14 @@ export function NotificationsDropdown() {
             {notifications.map((notification) => (
               <Link href={notification.href} key={notification.id}>
                 <DropdownMenuItem className="flex flex-col items-start">
-                  <span className="text-sm font-medium">
-                    {notification.title}
-                  </span>
-                  <span className="text-muted-foreground text-xs">
-                    {notification.description}
-                  </span>
+                  <span className="text-sm font-medium">{notification.title}</span>
+                  <span className="text-muted-foreground text-xs">{notification.description}</span>
                 </DropdownMenuItem>
               </Link>
             ))}
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-              <Link
-                href="/notifications"
-                className="w-full text-center text-sm"
-              >
+              <Link href="/notifications" className="w-full text-center text-sm">
                 View all notifications
               </Link>
             </DropdownMenuItem>

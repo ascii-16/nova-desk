@@ -21,13 +21,11 @@ export default function OrderCanceledEmail({
         Your order <strong>{orderId}</strong> has been canceled.
       </Text>
       <Text>
-        A refund of <strong>₹{refundAmount.toFixed(2)}</strong> has been
-        initiated and will reflect in your account within 3–5 business days.
+        A refund of <strong>₹{refundAmount.toFixed(2)}</strong> has been initiated and will reflect
+        in your account within 3–5 business days.
       </Text>
       <Hr />
-      <Text>
-        If you have any questions, feel free to contact our support team.
-      </Text>
+      <Text>If you have any questions, feel free to contact our support team.</Text>
       <Text style={{ marginTop: "12px" }}>- The NovaDesk Team</Text>
     </Container>
   );

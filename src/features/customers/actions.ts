@@ -15,8 +15,7 @@ export async function createCustomerAction(
     email: formData.get("email")?.toString() ?? "",
     location: formData.get("location")?.toString() ?? "",
     orders: formData.get("orders")?.toString() ?? "",
-    status: (formData.get("status")?.toString() ??
-      "Active") as CreateCustomerValues["status"],
+    status: (formData.get("status")?.toString() ?? "Active") as CreateCustomerValues["status"],
   };
 
   const validatedFields = customerSchema.safeParse(values);

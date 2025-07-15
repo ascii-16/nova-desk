@@ -1,12 +1,5 @@
 import { type EmailTemplateProps } from "@/features/types";
-import {
-  Html,
-  Text,
-  Heading,
-  Section,
-  Container,
-  Hr,
-} from "@react-email/components";
+import { Html, Text, Heading, Section, Container, Hr } from "@react-email/components";
 
 export default function OrderPlacedEmail({
   name,

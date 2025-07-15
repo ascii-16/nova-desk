@@ -3,14 +3,7 @@
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
-export type ColorTheme =
-  | "default"
-  | "red"
-  | "rose"
-  | "orange"
-  | "green"
-  | "blue"
-  | "mono";
+export type ColorTheme = "default" | "red" | "rose" | "orange" | "green" | "blue" | "mono";
 
 const ColorThemeContext = React.createContext<{
   colorTheme: ColorTheme;
@@ -28,8 +21,7 @@ export function ThemeProvider({
   children,
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
-  const [colorTheme, setColorThemeState] =
-    React.useState<ColorTheme>("default");
+  const [colorTheme, setColorThemeState] = React.useState<ColorTheme>("default");
 
   React.useEffect(() => {
     const stored = localStorage.getItem("color-theme") as ColorTheme;

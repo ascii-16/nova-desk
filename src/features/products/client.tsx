@@ -80,10 +80,7 @@ const initialState: FormState<CreateProductValues> = {
 export function ProductsClient({ products }: { products: Product[] }) {
   const [data, setData] = useState(products);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [state, formAction, pending] = useActionState(
-    createProductAction,
-    initialState
-  );
+  const [state, formAction, pending] = useActionState(createProductAction, initialState);
 
   useEffect(() => {
     if (state.success) {
@@ -121,22 +118,14 @@ export function ProductsClient({ products }: { products: Product[] }) {
                 <Label htmlFor="name" className="mb-2">
                   Name
                 </Label>
-                <Input
-                  id="name"
-                  name="name"
-                  defaultValue={state.values?.name}
-                />
+                <Input id="name" name="name" defaultValue={state.values?.name} />
                 <FieldError name="name" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="category" className="mb-2">
                   Category
                 </Label>
-                <Input
-                  id="category"
-                  name="category"
-                  defaultValue={state.values?.category}
-                />
+                <Input id="category" name="category" defaultValue={state.values?.category} />
                 <FieldError name="category" errors={state.errors} />
               </div>
               <div>
@@ -156,23 +145,14 @@ export function ProductsClient({ products }: { products: Product[] }) {
                 <Label htmlFor="stock" className="mb-2">
                   Stock
                 </Label>
-                <Input
-                  id="stock"
-                  name="stock"
-                  type="number"
-                  defaultValue={state.values?.stock}
-                />
+                <Input id="stock" name="stock" type="number" defaultValue={state.values?.stock} />
                 <FieldError name="stock" errors={state.errors} />
               </div>
               <div>
                 <Label htmlFor="status" className="mb-2">
                   Status
                 </Label>
-                <select
-                  id="status"
-                  name="status"
-                  className="rounded border px-2 py-1"
-                >
+                <select id="status" name="status" className="rounded border px-2 py-1">
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
                   <option value="Low Stock">Low Stock</option>
