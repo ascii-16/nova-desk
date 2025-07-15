@@ -29,8 +29,7 @@ Nova Desk is a modern, extensible SaaS dashboard template built with [Next.js](h
 - **UI Kit**: [shadcn/ui](https://ui.shadcn.com) (Radix UI, Tailwind CSS)
 - **Table**: [TanStack Table](https://tanstack.com/table/v8)
 - **Charts**: [Recharts](https://recharts.org/)
-- **Drag & Drop**: [dnd-kit](https://dndkit.com/)
-- **Icons**: [Lucide](https://lucide.dev/), [Tabler Icons](https://tabler.io/icons)
+- **Icons**: [Lucide](https://lucide.dev/)
 - **Validation**: [zod](https://zod.dev/)
 - **Email**: [react-email](https://react.email/)
 
@@ -122,7 +121,6 @@ This template is provided as a starting point for SaaS dashboards and admin pane
 - [TanStack Table](https://tanstack.com/table/v8)
 - [Recharts](https://recharts.org/)
 - [Lucide Icons](https://lucide.dev/)
-- [Tabler Icons](https://tabler.io/icons)
 - [react-email](https://react.email/)
 - [zod](https://zod.dev/)
 
