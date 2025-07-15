@@ -24,7 +24,7 @@ export function TemplateCard({
     <Card className="w-full max-w-4xl">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <p className="text-sm text-muted-foreground">{description}</p>
+        <p className="text-muted-foreground text-sm">{description}</p>
       </CardHeader>
       <Separator />
       <CardContent className="overflow-auto rounded-md border bg-white p-6">

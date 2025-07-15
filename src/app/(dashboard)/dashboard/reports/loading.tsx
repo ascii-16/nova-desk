@@ -2,4 +2,4 @@ import { ReportsListingSkeleton } from "@/features/reports/components/reports-li
 
 export default function Loading() {
   return <ReportsListingSkeleton />;
-} 
+}

@@ -15,7 +15,7 @@ export default function AccountPage() {
 
       <Separator />
 
-      <form className="space-y-6 max-w-xl">
+      <form className="max-w-xl space-y-6">
         <div className="grid gap-4">
           <div>
             <Label htmlFor="name" className="mb-2">

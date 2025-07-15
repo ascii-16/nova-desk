@@ -35,7 +35,7 @@ export function NotificationsDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          <Bell className="w-4 h-4" />
+          <Bell className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
 
@@ -47,10 +47,10 @@ export function NotificationsDropdown() {
             {notifications.map((notification) => (
               <Link href={notification.href} key={notification.id}>
                 <DropdownMenuItem className="flex flex-col items-start">
-                  <span className="font-medium text-sm">
+                  <span className="text-sm font-medium">
                     {notification.title}
                   </span>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-muted-foreground text-xs">
                     {notification.description}
                   </span>
                 </DropdownMenuItem>
@@ -60,7 +60,7 @@ export function NotificationsDropdown() {
             <DropdownMenuItem asChild>
               <Link
                 href="/notifications"
-                className="text-sm text-center w-full"
+                className="w-full text-center text-sm"
               >
                 View all notifications
               </Link>

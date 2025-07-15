@@ -26,4 +26,4 @@ export async function fetchNotifications(): Promise<Notification[]> {
       href: "/dashboard/messages",
     },
   ];
-} 
+}

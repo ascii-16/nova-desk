@@ -2,4 +2,4 @@ import { ProductsListingSkeleton } from "@/features/products/components/products
 
 export default function Loading() {
   return <ProductsListingSkeleton />;
-} 
+}

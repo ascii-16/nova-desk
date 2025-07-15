@@ -13,4 +13,4 @@ export function TeamListingSkeleton() {
       </div>
     </div>
   );
-} 
+}

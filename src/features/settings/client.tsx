@@ -46,7 +46,7 @@ export function SettingsClient() {
       <Separator />
 
       {/* General */}
-      <div className="space-y-4 max-w-xl">
+      <div className="max-w-xl space-y-4">
         <h2 className="text-xl font-semibold">General</h2>
         <div className="grid gap-4">
           <div>
@@ -68,7 +68,7 @@ export function SettingsClient() {
       <Separator />
 
       {/* Appearance */}
-      <div className="space-y-4 max-w-xl">
+      <div className="max-w-xl space-y-4">
         <h2 className="text-xl font-semibold">Appearance</h2>
 
         <div className="flex items-center justify-between">
@@ -78,19 +78,19 @@ export function SettingsClient() {
               variant={theme === "light" ? "default" : "outline"}
               onClick={() => setTheme("light")}
             >
-              <Sun className="w-4 h-4 mr-2" /> Light
+              <Sun className="mr-2 h-4 w-4" /> Light
             </Button>
             <Button
               variant={theme === "dark" ? "default" : "outline"}
               onClick={() => setTheme("dark")}
             >
-              <Moon className="w-4 h-4 mr-2" /> Dark
+              <Moon className="mr-2 h-4 w-4" /> Dark
             </Button>
             <Button
               variant={theme === "system" ? "default" : "outline"}
               onClick={() => setTheme("system")}
             >
-              <Laptop className="w-4 h-4 mr-2" /> System
+              <Laptop className="mr-2 h-4 w-4" /> System
             </Button>
           </div>
         </div>
@@ -100,7 +100,7 @@ export function SettingsClient() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">
-                <Palette className="w-4 h-4 mr-2" />
+                <Palette className="mr-2 h-4 w-4" />
                 {themes.find((t) => t.value === colorTheme)?.label}
               </Button>
             </DropdownMenuTrigger>
@@ -109,11 +109,11 @@ export function SettingsClient() {
                 <DropdownMenuItem
                   key={theme.value}
                   onClick={() => setColorTheme(theme.value as ColorTheme)}
-                  className="flex justify-between items-center"
+                  className="flex items-center justify-between"
                 >
                   {theme.label}
                   {colorTheme === theme.value && (
-                    <Check className="h-4 w-4 text-primary" />
+                    <Check className="text-primary h-4 w-4" />
                   )}
                 </DropdownMenuItem>
               ))}
@@ -125,7 +125,7 @@ export function SettingsClient() {
       <Separator />
 
       {/* Security */}
-      <div className="space-y-4 max-w-xl">
+      <div className="max-w-xl space-y-4">
         <h2 className="text-xl font-semibold">Security</h2>
         <div className="grid gap-4">
           <div>
@@ -147,7 +147,7 @@ export function SettingsClient() {
       <Separator />
 
       {/* Notifications */}
-      <div className="space-y-4 max-w-xl">
+      <div className="max-w-xl space-y-4">
         <h2 className="text-xl font-semibold">Notifications</h2>
         <div className="space-y-2">
           <div className="flex items-center justify-between">

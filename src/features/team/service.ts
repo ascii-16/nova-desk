@@ -26,4 +26,4 @@ export async function fetchTeam(): Promise<TeamMember[]> {
       status: "Invited",
     },
   ];
-} 
+}

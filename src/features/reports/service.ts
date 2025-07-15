@@ -24,4 +24,4 @@ export async function fetchReports(): Promise<Report[]> {
       status: "Failed",
     },
   ];
-} 
+}

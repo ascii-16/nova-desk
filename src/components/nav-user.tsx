@@ -115,7 +115,7 @@ export function NavUser({
               className="text-red-700 focus:text-red-800"
               onClick={handleLogout}
             >
-              <LogOut className="text-red-700  focus:text-red-800" />
+              <LogOut className="text-red-700 focus:text-red-800" />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

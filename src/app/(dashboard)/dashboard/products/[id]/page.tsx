@@ -30,21 +30,21 @@ export default async function ProductViewPage({
         <CardHeader>
           <CardTitle>Product Details</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <CardContent className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
-            <div className="text-sm text-muted-foreground">Category</div>
+            <div className="text-muted-foreground text-sm">Category</div>
             <div className="font-medium">{product.category}</div>
           </div>
 
           <div>
-            <div className="text-sm text-muted-foreground">Status</div>
+            <div className="text-muted-foreground text-sm">Status</div>
             <Badge
               variant={
                 product.status === "Active"
                   ? "default"
                   : product.status === "Low Stock"
-                  ? "secondary"
-                  : "outline"
+                    ? "secondary"
+                    : "outline"
               }
             >
               {product.status}
@@ -52,12 +52,12 @@ export default async function ProductViewPage({
           </div>
 
           <div>
-            <div className="text-sm text-muted-foreground">Price</div>
+            <div className="text-muted-foreground text-sm">Price</div>
             <div className="font-medium">${product.price.toFixed(2)}</div>
           </div>
 
           <div>
-            <div className="text-sm text-muted-foreground">Stock</div>
+            <div className="text-muted-foreground text-sm">Stock</div>
             <div className="font-medium">{product.stock}</div>
           </div>
         </CardContent>

@@ -32,7 +32,7 @@ const columns: ColumnDef<Product>[] = [
     cell: ({ row }) => (
       <Link
         href={`/dashboard/products/${row.original.id}`}
-        className="text-primary underline underline-offset-2 hover:text-primary/80"
+        className="text-primary hover:text-primary/80 underline underline-offset-2"
       >
         {row.original.name}
       </Link>
@@ -54,8 +54,8 @@ const columns: ColumnDef<Product>[] = [
           row.original.status === "Active"
             ? "default"
             : row.original.status === "Low Stock"
-            ? "secondary"
-            : "outline"
+              ? "secondary"
+              : "outline"
         }
       >
         {row.original.status}
@@ -171,7 +171,7 @@ export function ProductsClient({ products }: { products: Product[] }) {
                 <select
                   id="status"
                   name="status"
-                  className="border rounded px-2 py-1"
+                  className="rounded border px-2 py-1"
                 >
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>

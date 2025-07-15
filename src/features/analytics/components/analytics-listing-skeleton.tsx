@@ -21,7 +21,7 @@ export function AnalyticsListingSkeleton() {
                 <Skeleton className="h-6 w-40" />
               </CardTitle>
             </CardHeader>
-            <CardContent className="h-64 flex items-center justify-center">
+            <CardContent className="flex h-64 items-center justify-center">
               <Skeleton className="h-full w-full rounded-md" />
             </CardContent>
           </Card>
@@ -34,7 +34,7 @@ export function AnalyticsListingSkeleton() {
                 <Skeleton className="h-6 w-40" />
               </CardTitle>
             </CardHeader>
-            <CardContent className="h-64 flex items-center justify-center">
+            <CardContent className="flex h-64 items-center justify-center">
               <Skeleton className="h-full w-full rounded-md" />
             </CardContent>
           </Card>

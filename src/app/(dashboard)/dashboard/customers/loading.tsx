@@ -2,4 +2,4 @@ import { CustomersListingSkeleton } from "@/features/customers/components/custom
 
 export default function Loading() {
   return <CustomersListingSkeleton />;
-} 
+}

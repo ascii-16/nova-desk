@@ -45,4 +45,4 @@ export async function fetchOrders(): Promise<Order[]> {
       date: "2025-07-04",
     },
   ];
-} 
+}

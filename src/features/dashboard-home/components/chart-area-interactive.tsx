@@ -58,12 +58,11 @@ export default function ChartAreaInteractive() {
     }
   }, [isMobile]);
 
-
   useEffect(() => {
     fetchChartData().then(setChartData);
   }, []);
 
-  if (!chartData) return <ChartAreaInteractiveSkeleton /> 
+  if (!chartData) return <ChartAreaInteractiveSkeleton />;
 
   const filteredData = chartData.filter((item) => {
     const date = new Date(item.date);

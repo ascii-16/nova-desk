@@ -4,7 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { Notification } from "./types";
 
-export function NotificationsClient({ notifications }: { notifications: Notification[] }) {
+export function NotificationsClient({
+  notifications,
+}: {
+  notifications: Notification[];
+}) {
   return (
     <div className="flex flex-col gap-6 p-6">
       <div>
@@ -20,7 +24,7 @@ export function NotificationsClient({ notifications }: { notifications: Notifica
             <CardHeader>
               <CardTitle className="text-base">{notification.title}</CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-muted-foreground flex flex-col gap-1">
+            <CardContent className="text-muted-foreground flex flex-col gap-1 text-sm">
               <p>{notification.description}</p>
               <span className="text-xs">{notification.time}</span>
             </CardContent>
@@ -29,4 +33,4 @@ export function NotificationsClient({ notifications }: { notifications: Notifica
       </div>
     </div>
   );
-} 
+}

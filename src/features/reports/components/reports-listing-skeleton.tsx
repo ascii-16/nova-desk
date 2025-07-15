@@ -13,4 +13,4 @@ export function ReportsListingSkeleton() {
       </div>
     </div>
   );
-} 
+}

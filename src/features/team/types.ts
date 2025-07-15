@@ -5,4 +5,4 @@ export interface TeamMember {
   role: "Admin" | "Editor" | "Viewer";
   status: "Active" | "Invited";
   avatarUrl?: string;
-} 
+}

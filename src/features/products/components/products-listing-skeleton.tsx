@@ -13,4 +13,4 @@ export function ProductsListingSkeleton() {
       </div>
     </div>
   );
-} 
+}

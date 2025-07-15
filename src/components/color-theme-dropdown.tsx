@@ -30,7 +30,7 @@ export function ColorThemeDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          <Palette className="w-4 h-4" />
+          <Palette className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -42,7 +42,7 @@ export function ColorThemeDropdown() {
           >
             {t.label}
             {colorTheme === t.value && (
-              <Check className="h-4 w-4 text-primary" />
+              <Check className="text-primary h-4 w-4" />
             )}
           </DropdownMenuItem>
         ))}

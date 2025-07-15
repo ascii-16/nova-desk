@@ -5,4 +5,4 @@ export interface Order {
   amount: number;
   status: "Pending" | "Shipped" | "Delivered" | "Cancelled";
   date: string;
-} 
+}

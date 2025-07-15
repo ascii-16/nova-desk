@@ -4,4 +4,4 @@ export interface Report {
   createdAt: string;
   status: "Ready" | "Processing" | "Failed";
   downloadUrl?: string;
-} 
+}

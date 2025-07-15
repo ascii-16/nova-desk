@@ -4,4 +4,4 @@ export interface Notification {
   description: string;
   time: string;
   href: string;
-} 
+}

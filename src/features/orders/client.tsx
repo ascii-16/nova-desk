@@ -18,16 +18,18 @@ const columns: ColumnDef<Order>[] = [
     header: "Status",
     cell: ({ row }) => (
       <Badge
-        variant={{
-          Delivered: "default",
-          Shipped: "secondary",
-          Pending: "outline",
-          Cancelled: "destructive",
-        }[row.original.status] as
-          | "default"
-          | "secondary"
-          | "outline"
-          | "destructive"}
+        variant={
+          {
+            Delivered: "default",
+            Shipped: "secondary",
+            Pending: "outline",
+            Cancelled: "destructive",
+          }[row.original.status] as
+            | "default"
+            | "secondary"
+            | "outline"
+            | "destructive"
+        }
       >
         {row.original.status}
       </Badge>
@@ -43,4 +45,4 @@ export function OrdersClient({ orders }: { orders: Order[] }) {
       <DataTable data={orders} columns={columns} />
     </div>
   );
-} 
+}

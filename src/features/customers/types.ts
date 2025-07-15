@@ -9,4 +9,4 @@ export interface Customer {
   status: "Active" | "Inactive" | "Pending";
 }
 
-export type CreateCustomerValues = Formify<Omit<Customer, "id">>; 
+export type CreateCustomerValues = Formify<Omit<Customer, "id">>;

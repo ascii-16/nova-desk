@@ -17,7 +17,7 @@ export function ChartAreaInteractiveSkeleton() {
         <CardDescription>
           <Skeleton className="h-4 w-48" />
         </CardDescription>
-        <div className="flex items-center gap-2 mt-2">
+        <div className="mt-2 flex items-center gap-2">
           <Skeleton className="h-8 w-24 rounded-md" />
           <Skeleton className="h-8 w-24 rounded-md" />
           <Skeleton className="h-8 w-24 rounded-md" />

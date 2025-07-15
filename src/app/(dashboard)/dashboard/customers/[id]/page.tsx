@@ -30,31 +30,31 @@ export default async function CustomerViewPage({
         <CardHeader>
           <CardTitle>Customer Details</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <CardContent className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
-            <div className="text-sm text-muted-foreground">Email</div>
+            <div className="text-muted-foreground text-sm">Email</div>
             <div className="font-medium">{customer.email}</div>
           </div>
 
           <div>
-            <div className="text-sm text-muted-foreground">Location</div>
+            <div className="text-muted-foreground text-sm">Location</div>
             <div className="font-medium">{customer.location}</div>
           </div>
 
           <div>
-            <div className="text-sm text-muted-foreground">Orders</div>
+            <div className="text-muted-foreground text-sm">Orders</div>
             <div className="font-medium">{customer.orders}</div>
           </div>
 
           <div>
-            <div className="text-sm text-muted-foreground">Status</div>
+            <div className="text-muted-foreground text-sm">Status</div>
             <Badge
               variant={
                 customer.status === "Active"
                   ? "default"
                   : customer.status === "Inactive"
-                  ? "outline"
-                  : "secondary"
+                    ? "outline"
+                    : "secondary"
               }
             >
               {customer.status}

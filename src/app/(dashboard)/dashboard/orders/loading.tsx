@@ -2,4 +2,4 @@ import { OrdersListingSkeleton } from "@/features/orders/components/orders-listi
 
 export default function Loading() {
   return <OrdersListingSkeleton />;
-} 
+}

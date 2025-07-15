@@ -13,4 +13,4 @@ export function OrdersListingSkeleton() {
       </div>
     </div>
   );
-} 
+}

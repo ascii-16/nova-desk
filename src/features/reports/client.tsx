@@ -3,8 +3,20 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Download, FileText, MoreVertical } from "lucide-react";
 import type { Report } from "./types";
 
@@ -42,8 +54,8 @@ export function ReportsClient({ reports }: { reports: Report[] }) {
                       report.status === "Ready"
                         ? "default"
                         : report.status === "Processing"
-                        ? "secondary"
-                        : "destructive"
+                          ? "secondary"
+                          : "destructive"
                     }
                   >
                     {report.status}
@@ -79,4 +91,4 @@ export function ReportsClient({ reports }: { reports: Report[] }) {
       </div>
     </div>
   );
-} 
+}

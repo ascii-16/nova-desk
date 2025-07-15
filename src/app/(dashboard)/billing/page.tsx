@@ -14,7 +14,7 @@ export default function BillingPage() {
 
       <Separator />
 
-      <div className="grid gap-6 max-w-xl">
+      <div className="grid max-w-xl gap-6">
         <Card>
           <CardHeader>
             <CardTitle>Current Plan</CardTitle>

@@ -2,4 +2,4 @@ import { NotificationsListingSkeleton } from "@/features/notifications/component
 
 export default function Loading() {
   return <NotificationsListingSkeleton />;
-} 
+}
