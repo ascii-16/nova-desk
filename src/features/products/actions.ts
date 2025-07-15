@@ -29,12 +29,21 @@ export async function createProductAction(
     };
   }
 
-  await createProduct({ ...validatedFields.data, id: randomSlug() });
+  try {
+    await createProduct({ ...validatedFields.data, id: randomSlug() });
 
-  return {
-    success: true,
-    errors: {},
-    messages: [],
-    values,
-  };
+    return {
+      success: true,
+      errors: {},
+      messages: [],
+      values,
+    };
+  } catch (e) {
+    return {
+      success: false,
+      errors: {},
+      messages: ["Unable to add product"],
+      values,
+    };
+  }
 }
