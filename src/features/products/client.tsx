@@ -23,6 +23,7 @@ import { createProductAction } from "./actions";
 import { FieldError } from "@/components/ui/field-error";
 import { fetchProducts } from "./service";
 import { Plus } from "lucide-react";
+import type { FormState } from "@/types/form";
 
 const columns: ColumnDef<Product>[] = [
   {

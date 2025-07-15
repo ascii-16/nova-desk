@@ -1,3 +1,5 @@
+import { Formify } from "@/types/form";
+
 export type Product = {
   id: string;
   name: string;
@@ -7,7 +9,4 @@ export type Product = {
   status: "Active" | "Inactive" | "Low Stock";
 };
 
-export type CreateProductValues = Omit<Product, "id" | "price" | "stock"> & {
-  price: string;
-  stock: string;
-};
+export type CreateProductValues = Formify<Omit<Product, "id">>;

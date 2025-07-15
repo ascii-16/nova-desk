@@ -4,6 +4,7 @@ import { extractZodErrors, randomSlug } from "@/lib/utils";
 import { createProduct } from "./service";
 import { productSchema } from "./validation";
 import type { CreateProductValues } from "./types";
+import type { FormState } from "@/types/form";
 
 export async function createProductAction(
   _prevState: FormState<CreateProductValues>,
