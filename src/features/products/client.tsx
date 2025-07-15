@@ -22,6 +22,7 @@ import type { CreateProductValues, Product } from "./types";
 import { createProductAction } from "./actions";
 import { FieldError } from "@/components/ui/field-error";
 import { fetchProducts } from "./service";
+import { Plus } from "lucide-react";
 
 const columns: ColumnDef<Product>[] = [
   {
@@ -107,7 +108,7 @@ export function ProductsClient({ products }: { products: Product[] }) {
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" size="sm">
-              Add Product
+              <Plus /> Add Product
             </Button>
           </SheetTrigger>
           <SheetContent>

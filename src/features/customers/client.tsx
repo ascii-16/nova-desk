@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { Customer } from "./types";
 import { ColumnDef } from "@tanstack/react-table";
+import { Plus } from "lucide-react";
 
 const columns: ColumnDef<Customer>[] = [
   {
@@ -101,7 +102,7 @@ export function CustomersClient({ customers }: { customers: Customer[] }) {
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" size="sm">
-              Add Customer
+              <Plus /> Add Customer
             </Button>
           </SheetTrigger>
           <SheetContent>
