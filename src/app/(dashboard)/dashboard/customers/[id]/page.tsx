@@ -11,8 +11,7 @@ export default async function CustomerViewPage({
   params,
 }: CustomerViewPageProps) {
   const p = await params;
-  const id = Number(p.id);
-  const customer = await fetchCustomerById(id);
+  const customer = await fetchCustomerById(p.id);
 
   if (!customer) {
     notFound();

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useEffect } from "react";
 import {
   closestCenter,
   DndContext,
@@ -52,7 +53,6 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -70,8 +70,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useEffect } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function DraggableRow({ row }: { row: Row<any> }) {
   const { transform, transition, setNodeRef, isDragging } = useSortable({
     id: row.original.id,
@@ -127,6 +127,7 @@ export function DataTable<TData>({
   );
 
   const dataIds = React.useMemo<UniqueIdentifier[]>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     () => (data && (data as any[]).map((row) => row.id)) || [],
     [data]
   );
@@ -141,6 +142,7 @@ export function DataTable<TData>({
       columnFilters,
       pagination,
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getRowId: (row: any) => row.id?.toString?.() ?? row.id,
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,

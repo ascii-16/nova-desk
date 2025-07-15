@@ -40,6 +40,7 @@ export async function createCustomerAction(
       values,
     };
   } catch (e) {
+    console.error(e);
     return {
       success: false,
       errors: {},

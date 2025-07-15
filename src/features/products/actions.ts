@@ -40,6 +40,7 @@ export async function createProductAction(
       values,
     };
   } catch (e) {
+    console.error(e);
     return {
       success: false,
       errors: {},
