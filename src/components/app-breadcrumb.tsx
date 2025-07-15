@@ -24,7 +24,7 @@ export function AppBreadCrumb() {
 
   return (
     <Breadcrumb>
-      <BreadcrumbList>
+      <BreadcrumbList className="capitalize">
         {pathArray.map((item, i) => (
           <Fragment key={item.href}>
             <BreadcrumbItem>
